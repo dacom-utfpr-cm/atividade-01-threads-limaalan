@@ -5,7 +5,9 @@ public class ThreadSleep {
         try {
             Thread.sleep(ms);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Thread interrompida!");
+            //e.printStackTrace();
+            return;
         }
     }
 

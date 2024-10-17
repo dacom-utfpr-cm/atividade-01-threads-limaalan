@@ -1,7 +1,7 @@
 package atividade02;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
-import outros.ThreadSleep;
 
 public class ReadingThread implements  Runnable{
 
@@ -14,12 +14,19 @@ public class ReadingThread implements  Runnable{
             while (scanner.hasNextLine()) {
                 String data = scanner.nextLine();
                 System.out.println(data);
-                ThreadSleep.sleepSeconds(num);
+
+                try {
+                    Thread.sleep(num*1000);
+                } catch (InterruptedException e) {
+                    System.out.println("Thread leitora interrompida!");
+                    scanner.close();
+                    return;
+                }
                 
             }
             System.out.println("Todas as frases exibidas.");
             scanner.close();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             System.out.println("Um erro ocorreu: "+e);
         }
     }

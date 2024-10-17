@@ -1,42 +1,36 @@
+/**
+ * @author Alan Lima Marques
+ * @date 17/10/2024
+ * @brief Thread que lê uma quantidade arbitrária de valores numéricos.
+ */
+package atividade05;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ReaderThread {
-    private static volatile ArrayList<Integer> readValues = new ArrayList<>();
+public class ReaderThread implements  Runnable{
+    private final ArrayList<Integer> readValues = new ArrayList<>();
 
-    public static void main(String[] args) {
-        Thread readerThread = new Thread(()->{
-            System.out.println("\n Entre com valores inteiros, digite -1 para sair.");
-            Scanner reader = new Scanner(System.in);
-            Integer line =0;
-            
-            while ( line != null && line!= -1){
-                System.out.println("Digite :");
-                readValues.add(line);
-                line = Integer.valueOf(reader.nextLine());
-                
-                System.out.println("Lido:" + line );
-            }
-            reader.close();
-            
-        });
+    @Override
+    public void run(){
+        System.out.println("\n Entre com valores inteiros, digite qualquer outra coisa para encerrar.");
+        Scanner reader = new Scanner(System.in);
+        Integer num ;
         
-        System.out.println("Iniciando thread de leitura...");
-        readerThread.start();
-        try {
-            readerThread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while (true){
+            System.out.print("Valor :");
+            try {
+                num = reader.nextInt();
+            } catch (Exception e) {
+                System.out.println("Encerrando leitura pela thread de leitura...");
+                reader.close();
+                return;
+            }
+            readValues.add(num);
         }
-        System.out.println("Thread de leitura finalizada.");
-
-        Integer sum = 0;
-        for (Integer elem : readValues) {
-            sum += elem;
-        }
-
-        System.out.println("Soma é : " + sum);
     }
 
+    public ArrayList<Integer> getReadValues() {
+        return readValues;
+    }
 }

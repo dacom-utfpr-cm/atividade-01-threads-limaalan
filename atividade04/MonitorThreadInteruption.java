@@ -1,5 +1,9 @@
 package atividade04;
-
+/**
+ * @author Alan Lima Marques
+ * @date 17/10/2024
+ * @brief Thread que monitora interrupções de um grupo de thread e finaliza após todas terminarem.
+ */
 public class MonitorThreadInteruption extends Thread{
     Thread[] threads ;
 

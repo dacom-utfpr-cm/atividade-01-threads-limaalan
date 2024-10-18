@@ -2,7 +2,7 @@ package atividade02;
 /**
  * @author Alan Lima Marques
  * @date 17/10/2024
- * @brief Thread principal que inicia três outras threads que esperam um tempo aleatório.
+ * @brief Thread principal que inicia outra thread que lê um arquivo.
  */
 public class Main {
     public static void main(String[] args) {

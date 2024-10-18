@@ -2,7 +2,7 @@ package atividade03;
 /**
  * @author Alan Lima Marques
  * @date 17/10/2024
- * @brief Thread principal que inicia três outras threads que esperam um tempo aleatório.
+ * @brief Thread principal que inicia outras threads e as interrompe .
  */
 import atividade01.SleepingThread;
 import atividade02.ReadingThread;
@@ -10,7 +10,6 @@ import outros.ThreadSleep;
 
 public class Main {
     public static void main(String[] args) {
-
 
         System.out.println("Iniciando 3 threads do exercício 1...");
         Thread[] threads = new Thread[4];

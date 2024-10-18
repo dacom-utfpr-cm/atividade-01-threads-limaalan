@@ -2,7 +2,11 @@ package atividade04;
 import atividade01.SleepingThread;
 import java.util.Random;
 import outros.ThreadSleep;
-
+/**
+ * @author Alan Lima Marques
+ * @date 17/10/2024
+ * @brief Thread principal que inicia outras threads e as interrompe.
+ */
 public class Main {
     public static final int MAX_TIME_BETWEEN_INTERRUPTIONS = 2;
     public static final int MIN_TIME_BETWEEN_INTERRUPTIONS = 1;

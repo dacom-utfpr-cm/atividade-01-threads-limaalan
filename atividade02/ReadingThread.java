@@ -2,7 +2,11 @@ package atividade02;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
+/**
+ * @author Alan Lima Marques
+ * @date 17/10/2024
+ * @brief Thread que lê linhas de um arquivo e termina se receber uma interrupção.
+ */
 public class ReadingThread implements  Runnable{
 
     @Override

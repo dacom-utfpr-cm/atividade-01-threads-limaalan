@@ -8,10 +8,11 @@ import java.util.Random;
 import outros.ThreadSleep;
 
 public class SleepingThread implements  Runnable{
-
+    private static final int MIN_SLEEP_TIME = 3;
+    private static final int MAX_SLEEP_TIME = 10;
     @Override
     public void run(){
-        Integer num = new Random().nextInt(10) +1;
+        Integer num = new Random().nextInt(MAX_SLEEP_TIME-MIN_SLEEP_TIME) +MIN_SLEEP_TIME;
         System.out.println("Dormindo por "+num+" Segundos...");
         ThreadSleep.sleepSeconds(num);
     }
